@@ -1,0 +1,112 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}about{% endblock title %}
+{% block head %}
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f8f9fa;
+    }
+
+    header {
+        background-color: #343a40;
+        padding: 1rem;
+        text-align: center;
+    }
+
+    nav ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+    }
+
+    nav ul li {
+        margin: 0 1rem;
+    }
+
+    nav ul li a {
+        color: #ffffff;
+        text-decoration: none;
+        font-size: 1.2rem;
+    }
+
+    main {
+        padding: 2rem;
+        text-align: center;
+    }
+
+    #about-us {
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    #about-us h1 {
+        color: #343a40;
+    }
+
+    .team {
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+        margin-top: 2rem;
+    }
+
+    .team-member {
+        text-align: center;
+    }
+
+    .team-member img {
+        border-radius: 50%;
+        width: 150px;
+        height: 150px;
+        object-fit: cover;
+    }
+
+    .team-member h2 {
+        margin-top: 1rem;
+        color: #343a40;
+    }
+
+    .team-member p {
+        color: #6c757d;
+    }
+</style>
+{% endblock head %}
+
+{% block body %}
+<main>
+    <section id="about-us">
+        <h1>About Us</h1>
+        <p>A Text Utils website is a powerful online tool designed to help users manipulate and clean their text data efficiently. Key features include the ability to remove punctuation, eliminate new lines, and capitalize text. The punctuation removal tool strips out all punctuation marks, making the text cleaner and more suitable for analysis or presentation. The new line remover consolidates text by eliminating unnecessary line breaks, resulting in a single, compact block of text. The capitalization tool allows users to convert text to uppercase, lowercase, or capitalize the first letter of each word, standardizing the text format for better readability. Users interact with a simple, user-friendly interface where they can paste or type their text, select the desired manipulation options, and then process the text with a click of a button. The cleaned and formatted text is then displayed in an output area, ready to be copied or downloaded. This tool is especially beneficial for quickly preparing large amounts of text, making it a valuable resource for data preprocessing, content creation, and text analysis.</p>
+        <div class="team">
+            <div class="team-member">
+                <img src="{% static 'img/me.jpg' %}" alt="Founder">
+                <h2>Ujjwal Singhal</h2>
+                <p>Founder & CEO</p>
+            </div>
+        </div>
+    </section>
+</main>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const teamMembers = document.querySelectorAll('.team-member');
+
+        teamMembers.forEach(member => {
+            member.addEventListener('mouseover', () => {
+                member.style.transform = 'scale(1.1)';
+                member.style.transition = 'transform 0.3s';
+            });
+
+            member.addEventListener('mouseout', () => {
+                member.style.transform = 'scale(1)';
+            });
+        });
+    });
+</script>
+
+{% endblock body %}

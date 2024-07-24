@@ -1,0 +1,84 @@
+{% extends "base.html" %} {% block title %}Contact|{% endblock title %}
+{% load static %}
+
+{% block body %}
+<div class="container-fluid my-4 px-0 ml-0" style="width: 800px">
+  <div
+    id="carouselExampleSlidesOnly"
+    class="carousel slide"
+    data-bs-ride="carousel"
+  >
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="{% static 'img/1.jpg' %}" class="d-block w-100" alt="..." />
+      </div>
+    </div>
+  </div>
+</div>
+<center><h4>This is a Contact page</h4></center>
+<div class="container">
+  <form class="row g-3" method="POST" action='/contact'> 
+    {% csrf_token %}
+    <div class="col-md-6">
+      <label for="FirstName" class="form-label">First Name</label>
+      <input type="text" class="form-control" id="FirstName"  placeholder="Enter your  First Name" name="FirstName"/>
+    </div>
+    <div class="col-md-6">
+      <label for="LastName" class="form-label" >Last Name</label>
+      <input type="text" class="form-control" id="LastName" placeholder="Enter your Last Name" name="LastName" />
+    </div>
+    <div class="col-12">
+      <label for="Email" class="form-label">Email</label>
+      <input
+        type="email"
+        class="form-control"
+        id="Email"
+        placeholder="abc@gmail.com"
+        name="Email"
+      />
+    </div>
+    <div class="col-12">
+      <label for="Phone" class="form-label">Phone Number</label>
+      <input
+        type="tel"
+        class="form-control"
+        id="Contact"
+        placeholder="9999999999"
+        maxlength = "10"
+        name="Phone"
+      />
+    </div>
+    <div class="col-12">
+      <label for="desc" class="form-label">Tell me About Yourself...</label>
+      <input
+        type="textarea"
+        class="form-control"
+        id="desc"
+        name="desc"
+      />
+    </div>
+    <div class="col-md-6">
+      <label for="inputCity" class="form-label">City</label>
+      <input type="text" class="form-control" id="inputCity" name="City" />
+    </div>
+    <div class="col-md-4">
+      <label for="inputState" class="form-label">State</label>
+      <select id="inputState" class="form-select" name="inputState">
+        <option selected hidden disabled name="deafult">Choose...</option>
+        <option value="Arunachal Pradesh" name="Arunchal Pradesh">Arunachal Pradesh</option>
+        <option value="Uttar Pradesh" name="Uttar pradesh">Uttar  Pradesh</option>
+        <option value="Madya Pradesh" name="Madhya Pradesh">Madhya Pradesh</option>
+      </select>
+    </div>
+    <div class="col-md-2">
+      <label for="inputZip" class="form-label">Zip</label>
+      <input type="text" class="form-control" id="inputZip" name="inputZip" />
+    </div>
+    <center>    <div class="col-12">
+      <button type="submit" class="btn btn-primary" name="Submit">Submit</button>
+    </div>
+</center>
+
+  </form>
+</div>
+{% endblock body %}
